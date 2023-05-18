@@ -1,0 +1,107 @@
+Sunday 19-02-2023
+
+##################################################################################################################
+Question1. Write a shell script to get current date, time, user name and current working directory.
+
+#!/bin/bash
+
+# Get the current date and time
+
+
+current_date=$(date +"%Y-%m-%d")
+current_time=$(date +"%H:%M:%S")
+
+echo Current_Date: $current_date
+echo Current_Time: $current_time
+
+# Get the current user name
+
+user_name=$(whoami)
+echo User-name: $user_name
+
+# Get the current working directory
+
+working_directory=$(pwd)
+echo Current Working Directory: $working_directory
+
+
+Output:
+
+Current_Date: 2023-02-21
+Current_Time: 18:20:43
+User-name: Dinesh Kumar
+Current Working Directory: /c/Users/Dinesh Kumar/Downloads/DineshGit/GitHub/Shellscripting
+
+####################################################################################################################
+Question:2 Write a Shell Script that adds two numbers if provided as the command Line Argument and if the two numbers are
+           not entered it outputs an Error Message along with a one-Line of how-to use description.
+
+#!/bin/bash
+
+if [ $# -lt 2 ]
+then
+    echo "command line arguments are missing "
+else
+    echo $(($1+$2))
+fi
+
+
+output:
+$ sh 2nd.sh 4 9
+13
+
+#######################################################################################################################
+
+Question 3: You needs to print a given Number say 10572, in reverse order using a Shell script such that the input is provided using 
+            command Line Argument only. If the input data is not provided as Command Line Argument, it should throw and error and should suggest, 
+            how to use the script. Write the script but before that tell me the algorithm that needs to be implemented here
+
+
+
+
+The reverse of 502 is 205
+
+#!/bin/bash
+
+# check if command line argument is provided
+if [ -z "$1" ]; then
+    echo "Error: Please provide a number as command line argument."
+    echo "Usage: ./reverse_number.sh <number>"
+    exit 1
+fi
+
+# store the number in a variable
+number=$1
+
+# reverse the number using a loop
+reverse=""
+while [ "$number" -gt 0 ]
+do
+    remainder=$(( $number % 10 ))
+    reverse="$reverse$remainder"
+    number=$(( $number / 10 ))
+done
+
+# print the reversed number
+echo "The reverse of $1 is $reverse"
+
+Output
+$ sh 3rd.sh 502
+The reverse of 502 is 205
+
+###########################################################################################################   
+Question 4:(You are supposed to calculate a real number calculation directly from terminal and not any shell script.
+           What will you do (say the real numbers are 7.56 and 2.453)?)
+
+echo 7.56 + 2.453 | bc
+10.013
+############################################################################################################
+Question 5:
+--You are supposed to find the value of pi upto 100 places of decimal, what is the easiest way to get the result done.
+
+
+Output
+c -l <<< 'scale=100;22/7'
+3.142857142857142857142857142857142857142857142857142857142857142857\
+1428571428571428571428571428571428
+##################################################################################################################

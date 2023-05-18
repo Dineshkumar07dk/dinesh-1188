@@ -1,0 +1,134 @@
+############################################################################################
+
+#!/bin/bash
+# shell script for deleting a line containing a specific word entered by the user
+
+echo "Enter the File Name:"
+read File
+
+echo "Enter the Word:"
+read Word
+
+echo "Word Before Removing $Word"
+cat $File
+
+grep -v -i $Word $File > test
+mv test $File
+
+echo "File after Removing the lines conating the word "$Word""
+
+cat $File
+
+############################################################################################
+
+#!/bin/bash
+
+# Creating a Directory and creating some files and listing all the files in the directory
+
+mkdir Directory
+echo " a New directory created named "Directory" "
+cd Directory
+touch New_files.txt{1..10}
+echo " 10 New files created "
+echo "Listing all the New files created in the current directory"
+ls -lrt
+
+#############################################################################################
+
+#!/bin/bash
+
+# Shell script to perform basic arthematic operations
+
+echo Enter A:
+read A
+echo Enter B
+read B
+
+echo Addition A+B= $(($A + $B))
+echo Substration A-B= $(($A - $B))
+echo Multiplication AXB= $(($A * $B))
+
+##############################################################################################
+
+#!/bin/bash
+
+# Shell Script to print the days how many days has that specific entered month
+
+echo "Month:"
+read Month
+
+if [ $Month = Febuary ] ; then
+echo "$Month has 28days In a Leap Year $Month has 29days"
+
+elif [ $Month = April ]
+then
+        echo " $Month has 30days"
+elif [ $Month = June ]
+then
+        echo " $Month has 30days"
+elif [ $Month = September ]
+then
+        echo " $Month has 30days"
+elif [ $Month = November ]
+then
+        echo " $Month has 30days"
+else
+        echo " $Month has 31days"
+fi
+
+################################################################################################
+
+#!/bin/bash
+
+#Basic Shell Script "for loop" script to print 0 to 20 numbers with 2 number difference
+
+for i in {0..20..2}
+        do
+                echo $i
+        done
+
+#################################################################################################
+
+#!/bin/bash
+
+#Basic for loop script to print 0 to 20 numbers with 2 number difference
+
+for i in {0..20..2}
+        do
+                echo $i
+        done
+
+##################################################################################################
+
+#!/bin/bash
+
+#a simple whileloop script to print number until a specified number
+
+echo Enter a Value:
+read value
+
+a=1
+
+until [ $a -gt $value ]
+do
+        echo $a
+        a=$((a+1))
+done
+
+####################################################################################################
+
+#!/bin/bash
+
+#Basic While Loop script to print 0-9 numbers
+
+a=0
+
+while [ $a -lt 10 ]
+do
+        echo $a
+        a=$((a+1))
+done
+
+######################################################################################################
+
+
